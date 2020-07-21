@@ -33,3 +33,6 @@ Salary by calling your APIs
 
 5. OPTIONAL BONUS POINT: Create one Unit test to test one of the methods of your
 Business Logic Layer
+
+
+ADDRESS TO API: http://masglobaltestapi.azurewebsites.net/swagger/
