@@ -1,0 +1,60 @@
+﻿@model List<Capa_datos.Modelo>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="panel panel-default" style="margin-top:3%">
+    <div class="panel-heading">
+        <strong>Información de los empleados</strong>
+    </div>
+    
+    <div class="panel-body">
+
+        <form name="formularion" method="post" action="@Url.Action("Index")" enctype="multipart/form-data">
+            <div class="row form-group">
+                <div class="col-sm-4 ">
+                    <label class="control-label">Id empleado:</label>
+                    <input autocomplete="off" type="number" class="form-control" value="@ViewBag.id" id="Id" name="Id" />
+                </div>
+                <div class="col-sm-4">
+                    <label style="width:100%; visibility:hidden">Boton</label>
+                    <button type="submit" class="btn btn-primary">Obtener Empleados</button>
+                </div>
+            </div>
+        </form>
+        
+        <table class="table table-bordered table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Tipo de contrato</th>
+                    <th>Rol</th>
+                    <th>Salario por hora</th>
+                    <th>Salario Mensual</th>
+                    <th>Salario Anual</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count > 0)
+                {
+                    foreach (Capa_datos.Modelo item in Model)
+                    {
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.name</td>
+                            <td>@item.contractTypeName</td>
+                            <td>@item.roleName</td>
+                            <td>@item.hourlySalary</td>
+                            <td>@item.monthlySalary</td>
+                            <td>@item.annualSalary</td>
+                        </tr>
+                    }
+                }
+                else {
+                    <tr><td colspan="7" class="text-center">No se ha encontrado ninguna informacion.</td></tr>
+                }</tbody>
+
+        </table>
+    </div>
+</div>
